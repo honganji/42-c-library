@@ -6,28 +6,28 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 11:27:58 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/14 19:07:15 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/14 20:42:22 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_join(char *buffer, char *tmp)
+char	*ft_gnl_join(char *buffer, char *tmp)
 {
 	char	*str;
 
-	str = ft_strjoin(buffer, tmp);
+	str = ft_gnl_strjoin(buffer, tmp);
 	free(buffer);
 	return (str);
 }
 
-char	*ft_read(int fd, char *buffer)
+char	*ft_gnl_read(int fd, char *buffer)
 {
 	int		result;
 	char	tmp[BUFFER_SIZE + 1];
 
 	if (!buffer)
-		buffer = ft_calloc(1, sizeof(char));
+		buffer = ft_gnl_calloc(1, sizeof(char));
 	if (!buffer)
 		return (NULL);
 	result = 1;
@@ -37,16 +37,16 @@ char	*ft_read(int fd, char *buffer)
 		if (result < 0)
 			return (free(buffer), NULL);
 		tmp[result] = '\0';
-		buffer = ft_join(buffer, tmp);
+		buffer = ft_gnl_join(buffer, tmp);
 		if (!buffer)
 			return (NULL);
-		if (ft_strchr(buffer, '\n'))
+		if (ft_gnl_strchr(buffer, '\n'))
 			break ;
 	}
 	return (buffer);
 }
 
-char	*ft_get_line(char *buffer)
+char	*ft_gnl_get_line(char *buffer)
 {
 	int		count;
 	char	*str;
@@ -63,7 +63,7 @@ char	*ft_get_line(char *buffer)
 	}
 	if (*buffer == '\n')
 		count++;
-	str = ft_calloc(count + 1, sizeof(char));
+	str = ft_gnl_calloc(count + 1, sizeof(char));
 	if (!str)
 		return (NULL);
 	count = 0;
@@ -87,7 +87,7 @@ char	*update_buffer(char *buffer)
 		tmp++;
 	if (!*tmp)
 		return (free(buffer), NULL);
-	str = ft_calloc(ft_strlen(tmp) + 1, sizeof(char));
+	str = ft_gnl_calloc(ft_gnl_strlen(tmp) + 1, sizeof(char));
 	if (!str)
 		return (free(buffer), NULL);
 	tmp++;
@@ -109,10 +109,10 @@ char	*get_next_line(int fd)
 	line = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= 4096)
 		return (NULL);
-	buffer[fd] = ft_read(fd, buffer[fd]);
+	buffer[fd] = ft_gnl_read(fd, buffer[fd]);
 	if (!buffer[fd])
 		return (NULL);
-	line = ft_get_line(buffer[fd]);
+	line = ft_gnl_get_line(buffer[fd]);
 	if (!line)
 	{
 		free(buffer[fd]);

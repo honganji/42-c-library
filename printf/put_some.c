@@ -6,11 +6,11 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 15:31:44 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/03/17 18:08:19 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/14 20:12:17 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mand.h"
+#include "ft_printf.h"
 
 void	put_chr(char c, t_state *state)
 {
