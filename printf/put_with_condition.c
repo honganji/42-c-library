@@ -6,11 +6,11 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:20:05 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/03/17 18:07:42 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/14 20:12:22 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mand.h"
+#include "ft_printf.h"
 
 void	put_with_condition(char c, va_list ap, t_state *state)
 {
